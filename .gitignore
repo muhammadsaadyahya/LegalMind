@@ -1,0 +1,54 @@
+# Ignore node_modules in backend and frontend
+backend/node_modules/
+frontend/node_modules/
+
+# Ignore environment variable files
+backend/.env
+frontend/.env
+
+# Ignore build/output folders
+backend/dist/
+backend/build/
+frontend/build/
+frontend/dist/
+
+# Logs
+*.log
+logs/
+logs/**
+
+# Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Coverage reports
+coverage/
+backend/coverage/
+frontend/coverage/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Cache folders
+.cache/
+backend/.cache/
+frontend/.cache/
+
+# Others
+*.swp
+*.lock

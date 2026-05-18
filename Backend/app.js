@@ -52,6 +52,6 @@ io.on("connection", (socket) => {
   chatHandlers(io, socket);
 });
 
-server.listen(5000, () => {
+server.listen(process.env.PORT, () => {
   console.log("HTTP + Socket.IO running on port 5000");
 });

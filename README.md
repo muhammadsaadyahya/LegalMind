@@ -23,6 +23,12 @@
 LegalMind is a full-stack JavaScript application split into a Frontend and Backend architecture. It provides a unified platform for legal professionals, leveraging modern web technologies and Artificial Intelligence to enhance productivity and decision-making. 
 
 The application solves the problem of fragmented legal workflows by combining secure document ingestion with a Retrieval-Augmented Generation (RAG) system, automated case predictions, and role-based access for Admins, Lawyers, and Clients.
+---
+## 🎥 Project Demo
+
+Watch this short video to see LegalMind in action:
+
+https://github.com/user-attachments/assets/01dbc7cf-8a4c-400b-a5f1-fbfb28ac4a5c
 
 ---
 

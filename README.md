@@ -1,15 +1,18 @@
 # LegalMind ⚖️
 
+> **Description:** LegalMind is a comprehensive legal practice management system designed to streamline the workflow of law firms, integrating advanced AI capabilities for document analysis and case prediction, real-time communication, and robust case management.
+
+---
 
 ## 📖 Table of Contents
 - [About the Project](#about-the-project)
+- [Key Features](#key-features)
+- [System Architecture](#system-architecture)
 - [Project Structure](#project-structure)
+- [Tech Stack](#tech-stack)
+- [API Overview](#api-overview)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
-  - [Backend Setup](#backend-setup)
-  - [Frontend Setup](#frontend-setup)
-- [Available Scripts](#available-scripts)
-- [Tech Stack](#tech-stack)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -17,93 +20,109 @@
 
 ## 🔍 About the Project
 
-LegalMind is a full-stack JavaScript application split into a `Frontend` and `Backend` architecture. 
+LegalMind is a full-stack JavaScript application split into a Frontend and Backend architecture. It provides a unified platform for legal professionals, leveraging modern web technologies and Artificial Intelligence to enhance productivity and decision-making. 
 
-*(Add more specific details about the problem your application solves, the features it provides, and any target audience information here.)*
+The application solves the problem of fragmented legal workflows by combining secure document ingestion with a Retrieval-Augmented Generation (RAG) system, automated case predictions, and role-based access for Admins, Lawyers, and Clients.
+
+---
+
+## ✨ Key Features
+
+- **🔐 Authentication & Role-Based Access (RBAC):** Secure JWT-based login with distinct dashboards for Admins, Lawyers, and Clients.
+- **📁 Case Management:** Complete CRUD operations for cases, an overview dashboard for active/pending/closed cases, and an AI-powered case outcome predictor based on historical data.
+- **📄 Document Management (RAG System):** Upload legal PDFs, which are parsed, chunked, and embedded into a Pinecone vector database. Users can perform intelligent natural language searches across all documents.
+- **💬 Real-Time Communication:** Instant messaging between lawyers and clients using Socket.io, plus a conversational AI assistant for drafting and quick legal queries.
+- **💰 Financials:** Track legal fees, expenses, and cash flow payments.
+
+---
+
+## 🏗 System Architecture
+
+The application follows a client-server architecture:
+- **Frontend:** A Single Page Application (SPA) built with React and Vite, managing the user interface and state via Redux. It communicates with the backend via RESTful APIs and WebSockets.
+- **Backend:** A Node.js/Express server handling business logic, database interactions, and AI integrations.
+- **Database:** MongoDB for persistent storage of users, cases, documents, and chat history.
+- **AI Services:** Integrates Google Gemini and Pinecone (Vector Database) for intelligent document search and case analysis.
 
 ---
 
 ## 📂 Project Structure
 
-This repository is a monorepo containing both the frontend client and the backend server.
-
 ```text
 LegalMind/
 ├── Backend/               # Node.js / Express backend API
-│   ├── src/               # Backend source code (controllers, routes, models)
-│   ├── package.json       # Backend dependencies
-│   └── .env.example       # Example environment variables for the backend
-├── Frontend/              # Client-side web application (React/Vue/etc.)
-│   ├── src/               # Frontend source code (components, pages, styles)
-│   ├── public/            # Static assets
-│   └── package.json       # Frontend dependencies
-├── .gitignore             # Root gitignore rules
-└── README.md              # Project documentation (this file)
+│   ├── package.json
+│   └── .env               # (Needs API keys for DB, Pinecone, Gemini)
+├── Frontend/              # React (Vite) client application
+│   ├── package.json
+│   └── ...
+├── .gitignore             
+└── README.md              
 ```
-
----
-
-## 🛠 Prerequisites
-
-Before you begin, ensure you have the following installed on your local machine:
-- [Node.js](https://nodejs.org/) (v16.x or higher recommended)
-- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
-- Git
-
----
-
-## 🚀 Getting Started
-
-Follow these steps to get a local copy of the project up and running.
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/muhammadsaadyahya/LegalMind.git
-cd LegalMind
-```
-
-### 2. Backend Setup
-Navigate to the backend directory, install dependencies, and start the development server.
-
-```bash
-cd Backend
-npm install
-# Rename .env.example to .env and configure your environment variables
-npm run dev
-```
-
-### 3. Frontend Setup
-Open a new terminal window/tab, navigate to the frontend directory, install dependencies, and start the client application.
-
-```bash
-cd ../Frontend
-npm install
-# Configure your frontend environment variables if necessary
-npm start
-```
-
----
-
-## 📜 Available Scripts
-
-### Backend (`/Backend`)
-- `npm start` - Starts the production server.
-- `npm run dev` - Starts the development server with hot-reloading (e.g., using nodemon).
-- `npm test` - Runs backend tests.
-
-### Frontend (`/Frontend`)
-- `npm start` or `npm run dev` - Starts the development server.
-- `npm run build` - Builds the app for production to the `build` or `dist` folder.
-- `npm test` - Runs frontend tests.
 
 ---
 
 ## 💻 Tech Stack
 
-- **Language:** JavaScript
-- **Frontend:** *(e.g., React, HTML, CSS)*
-- **Backend:** *(e.g., Node.js, Express)*
-- **Database:** *(e.g., MongoDB, PostgreSQL)*
+### Frontend
+- **Framework:** React (Vite)
+- **State Management:** Redux Toolkit
+- **Routing:** React Router DOM
+- **UI/Styling:** Bootstrap, Framer Motion (Animations), Custom CSS
+- **Visualization:** Chart.js
+
+### Backend
+- **Runtime & Framework:** Node.js, Express.js
+- **Database:** MongoDB (Mongoose ODM)
+- **Real-time:** Socket.io
+- **Authentication:** JSON Web Tokens (JWT), bcryptjs
+- **AI & Vector Search:** Google GenAI (Gemini), Pinecone, ChromaDB
+- **File Handling:** Multer, PDF-Parse
+
+---
+
+## 🔌 API Overview
+The frontend communicates with the backend (`http://localhost:5000/api`) via the following primary endpoints:
+- **Auth:** `POST /auth/login`, `POST /auth/register`
+- **Users:** `GET /users/profile`, `PUT /users/update`
+- **Cases:** `GET /cases`, `POST /cases`, `GET /cases/:id`
+- **Documents:** `POST /documents/upload`, `GET /documents`
+- **AI/Search:** `POST /ai/predict`, `POST /search/query` (RAG Search)
+- **Notifications:** `GET /notifications`
+
+---
+
+## 🛠 Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16.x or higher)
+- MongoDB (Local or Atlas URI)
+- Pinecone API Key
+- Google Gemini API Key
+
+---
+
+## 🚀 Getting Started
+
+### 1. Backend Setup
+Navigate to the backend directory, install dependencies, and start the development server.
+
+```bash
+cd Backend
+npm install
+# Configure your .env file with MongoDB URI, Pinecone Key, and Gemini Key
+npm run dev
+```
+*(The backend server will run on port 5000)*
+
+### 2. Frontend Setup
+Open a new terminal window, navigate to the frontend directory, install dependencies, and start the client application.
+
+```bash
+cd Frontend
+npm install
+npm run dev
+```
+*(The frontend application will run on port 5173 by default)*
 
 ---
 

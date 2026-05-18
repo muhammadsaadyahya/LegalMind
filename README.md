@@ -1,12 +1,5 @@
 # LegalMind ⚖️
 
-> **Description:** A brief, 1-2 sentence description of what LegalMind does. *(e.g., "LegalMind is a comprehensive web application designed to simplify legal case management, automate document processing, and provide accessible legal resources.")*
-
-> **Website:** [https://your-valid-url-here.com](https://your-valid-url-here.com)
-
-> **Topics:** `javascript` `react` `nodejs` `express` `legaltech` `fullstack` *(Adjust topics as needed, separated by spaces)*
-
----
 
 ## 📖 Table of Contents
 - [About the Project](#about-the-project)

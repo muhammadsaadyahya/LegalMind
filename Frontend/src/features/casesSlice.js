@@ -110,7 +110,10 @@ const casesSlice = createSlice({
           ...action.payload,
           id: action.payload._id,
         };
-        state.items.push(newCase);
+        // A refetch may already have brought this case in; don't list it twice.
+        if (!state.items.some((c) => c.id === newCase.id)) {
+          state.items.push(newCase);
+        }
       })
       .addCase(addCaseItem.rejected, (state, action) => {
         console.error("Add case failed:", action.payload);

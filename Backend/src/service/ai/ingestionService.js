@@ -4,7 +4,7 @@ import { pineconeIndex } from "../../config/pineconeClient.js";
 
 export async function ingestDocument(docId, docText) {
   const chunks = chunkText(docText);
-  Console.log("Started");
+  console.log("Started");
   const embeddingResults = await getEmbedding(chunks);
 
   const embeddings = chunks.map((chunk, idx) => {

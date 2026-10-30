@@ -77,7 +77,7 @@ export function CaseManager() {
     dispatch(fetchlawyers());
   }, []);
 
-  const handleAddCase = () => {
+  const handleAddCase = async () => {
     if (!newCase.title.trim()) {
       // alert("Please enter a case title");
       return;
@@ -101,7 +101,8 @@ export function CaseManager() {
         .map((t) => t.trim())
         .filter(Boolean),
     };
-    dispatch(addCaseItem(caseToAdd));
+    // Wait for the save so the refetch below includes the new case (with populated client/lawyer).
+    await dispatch(addCaseItem(caseToAdd));
     setNewCase({
       title: "",
       caseType: "Civil",

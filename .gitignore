@@ -52,3 +52,7 @@ frontend/.cache/
 # Others
 *.swp
 *.lock
+
+# Demo video pipeline outputs
+demo/out/
+demo/node_modules/

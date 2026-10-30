@@ -90,7 +90,7 @@ export const queryEmbedding = async (text) => {
     const response = await ai.models.embedContent({
       model: "gemini-embedding-001",
       contents: text,
-      taskType: "RETRIEVAL_DOCUMENT",
+      taskType: "RETRIEVAL_QUERY",
     });
     return response.embeddings;
   } catch (err) {

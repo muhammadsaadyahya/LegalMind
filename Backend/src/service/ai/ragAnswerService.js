@@ -5,7 +5,8 @@ const ai = new GoogleGenAI({
 });
 
 export async function generateAnswer(question, contexts) {
-  const contextText = contexts.join("\n\n---\n\n");
+  // contexts are { chunk, score } objects from retrievalService
+  const contextText = contexts.map((c) => c.chunk ?? c).join("\n\n---\n\n");
 
   const prompt = `
 You are a helpful legal assistant.

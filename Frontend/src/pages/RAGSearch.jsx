@@ -301,6 +301,7 @@ const styles = {
   },
   searchInput: {
     flex: 1,
+    minWidth: 0, // inputs have an intrinsic min width that pushed the button out of the form
     padding: "14px 16px",
     border: "1px solid rgba(255, 255, 255, 0.1)",
     borderRadius: "10px",
@@ -319,6 +320,7 @@ const styles = {
     cursor: "pointer",
     fontSize: "14px",
     whiteSpace: "nowrap",
+    flexShrink: 0,
     boxShadow: "0 4px 15px rgba(102, 126, 234, 0.4)",
     transition: "all 0.2s ease",
   },

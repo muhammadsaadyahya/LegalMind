@@ -1,0 +1,7 @@
+{
+  "name": "legalmind",
+  "private": true,
+  "scripts": {
+    "demo": "npm --prefix demo install --no-audit --no-fund && npm --prefix demo run demo --"
+  }
+}

@@ -28,7 +28,10 @@ export const uploadDocumentController = async (req, res) => {
       history: [{ action: "Uploaded", date: new Date() }],
     });
     const extractedText = await extractText(file.path);
-    ingestDocument(doc._id, extractedText);
+    // Indexing runs in the background; log failures instead of crashing the server.
+    ingestDocument(doc._id, extractedText).catch((err) =>
+      console.error("Document ingestion failed:", err),
+    );
 
     res.status(201).json({ message: "Document uploaded", doc });
   } catch (err) {

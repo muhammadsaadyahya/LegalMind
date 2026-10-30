@@ -56,3 +56,5 @@ frontend/.cache/
 # Demo video pipeline outputs
 demo/out/
 demo/node_modules/
+demo/
+/package.json

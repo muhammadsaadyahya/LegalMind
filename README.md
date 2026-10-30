@@ -28,9 +28,8 @@ The application solves the problem of fragmented legal workflows by combining se
 
 A 2-minute narrated walkthrough: a client opens a case and uploads a lease, then the lawyer chats in real time, summarizes the document with AI, runs a RAG search, asks the AI assistant and predicts the case outcome.
 
-[![LegalMind demo preview](docs/preview.gif)](docs/demo.mp4)
 
-▶️ **[Watch the full demo with narration (MP4, 2:14)](docs/demo.mp4)**
+https://github.com/user-attachments/assets/805da9a2-72ad-4799-b285-a826d9d64da0
 
 ---
 
